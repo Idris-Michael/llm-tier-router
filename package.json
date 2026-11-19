@@ -9,7 +9,10 @@
   "engines": { "node": ">=22.13" },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./prices.json": "./prices.json"
+  },
   "files": ["dist", "prices.json"],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",

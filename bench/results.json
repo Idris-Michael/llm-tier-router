@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "Date": "2026-11-19",
+    "Setup": "subscription",
+    "Tasks": "115 (seed 7)",
+    "CLI preamble": "929 tokens per call, measured and removed so costs match direct API calls",
+    "Classifier": "ollama/qwen2.5:7b",
+    "Tiers": "cheap ollama/qwen2.5:7b · mid claude-cli/claude-haiku-5-5 · frontier claude-cli/claude-sonnet-5-5",
+    "Prices": "prices.json, as of 2026-11-19"
+  },
+  "report": {
+    "arms": {
+      "frontier": {
+        "tasks": 115,
+        "passed": 115,
+        "successRate": 1,
+        "errors": 0,
+        "costUsd": 0.18155200000000002,
+        "costPerTaskUsd": 0.001578713043478261,
+        "unpricedCalls": 0,
+        "p50LatencyMs": 3319,
+        "p95LatencyMs": 6504
+      },
+      "routed": {
+        "tasks": 115,
+        "passed": 106,
+        "successRate": 0.9217391304347826,
+        "errors": 0,
+        "costUsd": 0.0158767,
+        "costPerTaskUsd": 0.00013805826086956522,
+        "unpricedCalls": 0,
+        "p50LatencyMs": 4180,
+        "p95LatencyMs": 8290
+      }
+    },
+    "costSaving": 0.9125501233806292,
+    "byKind": {
+      "extract": {
+        "frontier": 1,
+        "routed": 1,
+        "routedModels": {
+          "ollama/qwen2.5:7b": 15
+        }
+      },
+      "arithmetic": {
+        "frontier": 1,
+        "routed": 1,
+        "routedModels": {
+          "ollama/qwen2.5:7b": 10
+        }
+      },
+      "json": {
+        "frontier": 1,
+        "routed": 1,
+        "routedModels": {
+          "ollama/qwen2.5:7b": 15
+        }
+      },
+      "date": {
+        "frontier": 1,
+        "routed": 0.4666666666666667,
+        "routedModels": {
+          "ollama/qwen2.5:7b": 15
+        }
+      },
+      "gsm8k": {
+        "frontier": 1,
+        "routed": 0.975,
+        "routedModels": {
+          "ollama/qwen2.5:7b": 22,
+          "claude-cli/claude-haiku-5-5": 18
+        }
+      },
+      "ordering": {
+        "frontier": 1,
+        "routed": 1,
+        "routedModels": {
+          "claude-cli/claude-haiku-5-5": 18,
+          "claude-cli/claude-sonnet-5-5": 2
+        }
+      }
+    },
+    "routing": {
+      "byComplexity": {
+        "1": 3,
+        "2": 74,
+        "3": 36,
+        "4": 2
+      },
+      "byModel": {
+        "ollama/qwen2.5:7b": 77,
+        "claude-cli/claude-haiku-5-5": 36,
+        "claude-cli/claude-sonnet-5-5": 2
+      },
+      "classifierFallbacks": 0,
+      "avgRouterMs": 426
+    },
+    "misroutes": [
+      {
+        "taskId": "date-0",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "date-3",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "date-4",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "date-6",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "date-7",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "date-10",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "date-11",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "date-13",
+        "kind": "date",
+        "model": "ollama/qwen2.5:7b",
+        "complexity": 2
+      },
+      {
+        "taskId": "gsm8k-990",
+        "kind": "gsm8k",
+        "model": "claude-cli/claude-haiku-5-5",
+        "complexity": 3
+      }
+    ]
+  }
+}

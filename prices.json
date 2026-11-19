@@ -1,0 +1,17 @@
+{
+  "_source": "https://openrouter.ai/api/v1/models (pricing.prompt, pricing.input_cache_read, pricing.completion × 1M)",
+  "_asOf": "2026-11-19",
+  "_unit": "USD per 1M tokens",
+  "prices": {
+    "openrouter/deepseek/deepseek-v4.1-flash": { "input": 0.051, "cachedInput": 0.001, "output": 0.203 },
+    "openrouter/minimax/minimax-m2.7": { "input": 0.21, "cachedInput": 0.042, "output": 0.84 },
+    "openrouter/qwen/qwen3-235b-a22b-2507": { "input": 0.14, "cachedInput": 0.05, "output": 0.8 },
+    "openrouter/google/gemini-2.5-flash-lite": { "input": 0.1, "cachedInput": 0.01, "output": 0.4 },
+    "openrouter/anthropic/claude-haiku-5.5": { "input": 0.1, "cachedInput": 0.01, "output": 0.5 },
+    "openrouter/anthropic/claude-sonnet-5.5": { "input": 2.0, "cachedInput": 0.1, "output": 10.0 },
+    "openrouter/anthropic/claude-sonnet-4.6": { "input": 3.0, "cachedInput": 0.3, "output": 15.0 },
+    "ollama/qwen2.5:7b": { "input": 0, "output": 0 },
+    "ollama/gemma4:e4b": { "input": 0, "output": 0 },
+    "ollama/deepseek-r1:7b": { "input": 0, "output": 0 }
+  }
+}

@@ -4,6 +4,10 @@
 
 Most AI spend goes on simple requests sent to frontier models: a greeting, an email to extract, a date to work out. This router keeps those on cheap models and sends only the hard ones to the frontier, then measures what that saved and what it cost in quality.
 
+![Terminal recording: the test suite passes, then a 12-task benchmark runs both arms and prints the cost and success table](docs/demo.gif)
+
+*A real 12-task run (`npm test`, then `npm run bench -- --tasks 2`), replayed with pauses shortened. The full 115-task result is below.*
+
 ## Result
 
 **On 115 code-graded tasks, routing cost 91% less than sending everything to Claude Sonnet 5.5, at 92% task success against 100%.**

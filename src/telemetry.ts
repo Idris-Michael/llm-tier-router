@@ -47,7 +47,14 @@ CREATE TABLE IF NOT EXISTS calls (
 );
 CREATE INDEX IF NOT EXISTS calls_ts ON calls(ts);`;
 
-export function createTelemetry(path: string): Telemetry {
+export interface TelemetryOptions {
+  /** Called when a write fails. Default: a process warning, so failures are visible but never thrown. */
+  onError?: (error: Error) => void;
+}
+
+const warn = (e: Error): void => process.emitWarning(`llm-tier-router telemetry write failed: ${e.message}`);
+
+export function createTelemetry(path: string, { onError = warn }: TelemetryOptions = {}): Telemetry {
   const db = new DatabaseSync(path);
   db.exec(SCHEMA);
   const insert = db.prepare(`INSERT INTO calls (task_id, arm, complexity, routed, route_reason, model, prompt_tokens,
@@ -60,7 +67,7 @@ export function createTelemetry(path: string): Telemetry {
           r.completionTokens, r.costUsd, r.latencyMs, r.routerMs, r.ok ? 1 : 0, r.error);
         return true;
       } catch (e) {
-        process.emitWarning(`llm-tier-router telemetry write failed: ${(e as Error).message}`);
+        onError(e as Error);
         return false;
       }
     },

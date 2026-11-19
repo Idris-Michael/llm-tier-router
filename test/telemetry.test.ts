@@ -32,12 +32,14 @@ test("records calls and summarises spend, success and latency per model", () => 
   }
 });
 
-test("a broken database never throws into the request path", () => {
+test("a broken database never throws into the request path, but the failure is reported", () => {
   const dir = mkdtempSync(join(tmpdir(), "ltr-"));
   try {
-    const t = createTelemetry(join(dir, "calls.db"));
+    const errors: Error[] = [];
+    const t = createTelemetry(join(dir, "calls.db"), { onError: (e) => errors.push(e) });
     t.close();
-    assert.equal(t.record(row()), false); // closed DB: logged failure, no exception
+    assert.equal(t.record(row()), false); // closed DB: no exception
+    assert.equal(errors.length, 1, "the failure is surfaced, not swallowed");
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

@@ -74,7 +74,7 @@ export type { Attempt, FallbackResult } from "./fallback.js";
 export { callProvider, envFromProcess, providerOf, measureClaudeCliOverhead } from "./providers.js";
 export type { ProviderEnv, CallOptions, Provider } from "./providers.js";
 export { createTelemetry } from "./telemetry.js";
-export type { Telemetry, CallRecord, ModelSummary } from "./telemetry.js";
+export type { Telemetry, TelemetryOptions, CallRecord, ModelSummary } from "./telemetry.js";
 export { costUsd } from "./pricing.js";
 export type { Price, PriceTable } from "./pricing.js";
 export { ProviderError, ProvidersDownError, ContextOverflowError, MissingKeyError, isRetryable } from "./errors.js";
